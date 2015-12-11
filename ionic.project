@@ -1,0 +1,5 @@
+{
+  "name": "goal-tracking",
+  "app_id": "goal-tracking",
+  "gulpStartupTasks": ["watch"]
+}

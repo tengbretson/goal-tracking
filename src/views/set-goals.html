@@ -1,0 +1,42 @@
+
+<ion-view title="Set Goals" hide-back-button="true">
+  <ion-nav-buttons side="secondary">
+    <button ng-click='trackProgress()' class="button">Track Progress</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="goal in goals">
+        <div class='row text-center'>
+          <div class='col col-10'>
+            <button
+              class="button button-icon icon ion-close"
+              ng-click='goals.$remove(goal)'
+            ></button>
+          </div>
+          <div class='col col-80'>
+            <h1>I want to:</h1>
+            <label class='item item-input'>
+              <input
+                ng-change="goals.$save(goal)"
+                ng-model='goal.text'
+                type='text'
+              />
+            </label>
+            <label class='item item-input'>
+              <input
+                ng-change="goals.$save(goal)"
+                ng-model='goal.times'
+                type='number'
+              />
+              Times a day
+            </label>
+          </div>
+          <div class='col col-10'></div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <button ng-click="addGoal()" class="button button-block button-positive">
+      Add Another
+    </button>
+  </ion-content>
+</ion-view>
