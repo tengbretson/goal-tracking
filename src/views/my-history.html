@@ -1,0 +1,14 @@
+
+<ion-view title='My History'>
+  <ion-content>
+    <div class='chart-zone'>
+    </div>
+    <ion-radio
+      ng-repeat='goal in goals'
+      ng-value='goal.$id'
+      ng-model='historyModel.goalShowing'
+    >
+      {{ goal.text }}
+    </ion-radio>
+  </ion-content>
+</ion-view>

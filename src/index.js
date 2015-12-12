@@ -1,6 +1,7 @@
 import 'ionic-npm/js/ionic.bundle';
 import 'firebase/lib/firebase-web';
 import 'angularfire';
+import dayOfYear from 'day-of-year';
 
 import Router from './router';
 
@@ -28,10 +29,31 @@ app.run(($ionicPlatform, $state, $rootScope) => {
 
 app.config(Router);
 
-app.factory('goals', function ($rootScope, $firebaseArray) {
+app.factory('goals', ($rootScope, $firebaseArray) => {
   const { ref } = $rootScope;
   const { uid } = ref.getAuth();
   return $firebaseArray(
     new Firebase(`https://goal-track.firebaseio.com/u/${uid}/goal`)
   );
-})
+});
+
+app.factory('timesToday', ($rootScope, $firebaseObject) => {
+  const { ref } = $rootScope;
+  const { uid } = ref.getAuth();
+  const date = new Date;
+  const year = date.getFullYear();
+  const day = dayOfYear(date);
+  return $firebaseObject(
+    new Firebase(
+      `https://goal-track.firebaseio.com/u/${uid}/times/${year}/${day}`
+    )
+  );
+});
+
+app.factory('times', ($rootScope, $firebaseObject) => {
+  const { ref } = $rootScope;
+  const { uid } = ref.getAuth();
+  return $firebaseObject(
+    new Firebase(`https://goal-track.firebaseio.com/u/${uid}/times`)
+  );
+});

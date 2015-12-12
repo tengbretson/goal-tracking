@@ -1,13 +1,26 @@
-<ion-view title="Track Progress">
-  <ion-nav-buttons side="secondary">
-    <button class="button">Do Thing</button>
+<ion-view title='Track Progress'>
+  <ion-nav-buttons side='secondary'>
+    <button class='button'>Do Thing</button>
   </ion-nav-buttons>
   <ion-content>
     <ion-list>
-
+      <ion-item ng-repeat='goal in goals'>
+        <div class='row'>
+          <div class='col col-20 text-center col-center'>
+            <button
+              ng-click='addTime(goal.$id)'
+              class='button-small button icon ion-plus'
+            ></button>
+          </div>
+          <div class='col col-60 col-center'>
+            <h2 ng-bind='goal.text'></h2>
+          </div>
+          <div class='col col-20 text-center col-center'>
+            <span ng-bind='timesToday[goal.$id] || 0'></span>
+            <span>/</span>
+            <span ng-bind='goal.times'></span>
+          </div>
+      </ion-item>
     </ion-list>
-    <button class="button button-block button-positive">
-      Add Another
-    </button>
   </ion-content>
 </ion-view>

@@ -7,6 +7,8 @@ import SetGoalsController from './controllers/set-goals';
 import SetGoalsTemplate from './views/set-goals.html';
 import TrackProgressController from './controllers/track-progress';
 import TrackProgressTemplate from './views/track-progress.html';
+import MyHistoryController from './controllers/my-history';
+import MyHistoryTemplate from './views/my-history.html';
 
 export default function Router($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
@@ -40,6 +42,13 @@ export default function Router($stateProvider, $urlRouterProvider) {
     url: 'track-progress',
     template: TrackProgressTemplate,
     controller: TrackProgressController,
+    authRequired: true
+  });
+
+  $stateProvider.state('app.my-history', {
+    url: 'my-history',
+    template: MyHistoryTemplate,
+    controller: MyHistoryController,
     authRequired: true
   });
 }

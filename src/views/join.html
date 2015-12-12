@@ -1,18 +1,18 @@
-<ion-view title="Join">
+<ion-view title='Join'>
   <ion-content>
     <form ng-submit='join()'>
       <div class='list'>
         <label class='item item-input'>
-          <input ng-model='email' type='email' placeholder='Email'>
+          <input ng-model='joinData.email' type='email' placeholder='Email'>
         </label>
         <label class='item item-input'>
-          <input ng-model='pass1' type='password' placeholder='Password'>
+          <input ng-model='joinData.pass1' type='password' placeholder='Password'>
         </label>
         <label class='item item-input'>
-          <input ng-model='pass2' type='password' placeholder='Confirm Password'>
+          <input ng-model='joinData.pass2' type='password' placeholder='Confirm Password'>
         </label>
       </div>
-      <div ng-bind='error'></div>
+      <div>{{joinData.error}}</div>
       <button type='submit' class='button button-block button-positive'>
         Join!
       </button>

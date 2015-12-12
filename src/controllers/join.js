@@ -17,8 +17,8 @@ export default function JoinController($scope, $state, $rootScope) {
       const password = pass1;
       ref.createUser({ email, password }, (error, userData) => {
         if (error) setError(error.message);
-        else ref.authWithPassword($scope.loginData, (error, authData) => {
-          if (error) console.log('Login Failed!', error);
+        else ref.authWithPassword({ email, password }, (error, authData) => {
+          if (error) setError(error.message);
           else $state.transitionTo('app.set-goals');
         });
       });
