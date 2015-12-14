@@ -19,3 +19,18 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 @import "ionic-npm/scss/ionic";
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.goal {
+  stroke: red;
+}
+
+.area {
+  fill: steelblue;
+}
